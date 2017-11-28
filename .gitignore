@@ -22,7 +22,6 @@
 hs_err_pid*
 
 # Intellij
-*.iml
 .idea/workspace.xml
 .idea/libraries
 
