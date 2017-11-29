@@ -1,4 +1,4 @@
-package com.exercises;
+package com.edwin.cobos.exercises;
 
 import java.util.HashMap;
 

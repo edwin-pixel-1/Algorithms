@@ -1,6 +1,4 @@
-package com.exercises;
-
-import java.util.HashMap;
+package com.edwin.cobos;
 
 public class Main {
 
