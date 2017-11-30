@@ -3,6 +3,20 @@ package com.edwin.cobos.exercises;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ Design and implement a method with the following specifications.
+
+ Input #1: List of (x, y) coordinate points
+ Example: {(1, 0), (0, 5), (3, 0), (10, 10)}
+
+ Input #2: integer, K
+ Example: 2
+
+ Desired Output: List of (x, y) points consisting of the K points from the input list that are nearest in distance to the origin, (0, 0)
+ Example: {(1, 0), (3, 0)}
+
+ Distance to origin formula: sqrt(x^2 + y^2)
+ */
 public class ClosestPoints {
     public ClosestPoints() {
         List<int[]> list = Arrays.asList(
