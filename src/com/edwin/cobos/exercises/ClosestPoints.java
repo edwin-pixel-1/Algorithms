@@ -4,18 +4,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- Design and implement a method with the following specifications.
-
- Input #1: List of (x, y) coordinate points
- Example: {(1, 0), (0, 5), (3, 0), (10, 10)}
-
- Input #2: integer, K
- Example: 2
-
- Desired Output: List of (x, y) points consisting of the K points from the input list that are nearest in distance to the origin, (0, 0)
- Example: {(1, 0), (3, 0)}
-
- Distance to origin formula: sqrt(x^2 + y^2)
+ * Design and implement a method with the following specifications.
+ * <p>
+ * Input #1: List of (x, y) coordinate points
+ * Example: {(1, 0), (0, 5), (3, 0), (10, 10)}
+ * <p>
+ * Input #2: integer, K
+ * Example: 2
+ * <p>
+ * Desired Output: List of (x, y) points consisting of the K points from the input list that are nearest in distance to the origin, (0, 0)
+ * Example: {(1, 0), (3, 0)}
+ * <p>
+ * Distance to origin formula: sqrt(x^2 + y^2)
  */
 public class ClosestPoints {
     public ClosestPoints() {
@@ -32,25 +32,37 @@ public class ClosestPoints {
                 new int[]{5, 1}
         );
 
-        List<int[]> result =closestPoints(list, 2);
+        List<int[]> result = closestPoints(list, 2);
         System.out.println("Result: " + Arrays.deepToString(result.toArray()));
     }
 
     private List<int[]> closestPoints(List<int[]> points, int k) {
-        Map<Double, int[]> result = new TreeMap<>();
+        Map<Double, int[]> distanceMap = new TreeMap<>();
 
         if (k <= 0 || points.size() == 0) return new ArrayList<>();
 
         for (int[] point : points) {
             double distance = Math.sqrt(Math.pow(point[0], 2) + Math.pow(point[1], 2));
 
-            result.put(distance, point);
+            distanceMap.put(distance, point);
         }
 
+        List<int[]> result = new ArrayList<>();
+        int indexCount = 0;
+        for(int[] point : distanceMap.values())
+        {
+            if(indexCount >= k) break;
+            result.add(point);
+            indexCount++;
+        }
+
+        return result;
+        /*
         return result
                 .values()
                 .stream()
                 .limit(k)
                 .collect(Collectors.toList());
+        */
     }
 }

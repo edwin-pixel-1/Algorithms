@@ -1,8 +1,8 @@
 package com.edwin.cobos;
 
-import com.edwin.cobos.exercises.*;
+import com.edwin.cobos.Maharishi.*;
 
-public class Exercises extends Others {
+public class Exercises extends Exam {
 
     public Exercises() {
         super();
