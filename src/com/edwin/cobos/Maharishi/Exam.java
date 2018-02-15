@@ -12,8 +12,8 @@ public class Exam {
         //System.out.println(rr);
 
         //Test 3
-        //int rr = isSelfReferential(new int[]{1, 2, 1, 0});
-        //System.out.println(rr);
+//        int rr = isSelfReferential(new int[]{1, 2, 1, 0});
+//        System.out.println(rr);
 //        rr = isSelfReferential(new int[]{2, 0, 2, 0});
 //        System.out.println("{2, 0, 2, 0} = " + rr);
 //        rr = isSelfReferential(new int[]{2, 1, 2, 0, 0});
@@ -26,13 +26,21 @@ public class Exam {
 //        System.out.println("{5, 2, 1, 0, 0, 1, 0, 0, 0} = " + rr);
 //        rr = isSelfReferential(new int[]{6, 2, 1, 0, 0, 0, 1, 0, 0, 0});
 //        System.out.println("{6, 2, 1, 0, 0, 0, 1, 0, 0, 0} = " + rr);
+//        rr = isSelfReferential(new int[]{2, 0, 0});
+//        System.out.println("{2, 0, 0} = " + rr);
+//        rr = isSelfReferential(new int[]{2});
+//        System.out.println("{2} = " + rr);
+//        rr = isSelfReferential(new int[]{2, 0, 3, 1});
+//        System.out.println("{2, 0, 3, 0} = " + rr);
 
     }
 
     /*
-    3. An array a is defined to be self-referential if for i=0 to a.length-1, a[i] is the count of the number of times that the value i appears in the array. As the following table indicates, {1, 2, 1, 0} is a self-referential array.
+    3. An array a is defined to be self-referential if for i=0 to a.length-1,
+    a[i] is the count of the number of times that the value i appears in the array.
+    As the following table indicates, {1, 2, 1, 0} is a self-referential array.
 
-    i	  a[i]		comment
+    i      a[i]     comment
     0		1		There is one 0 in the array. (a[0] = 1)
     1		2		There are two 1s in the array (a[1] = 2)
     2		1		There is one 2 in the array (a[2] = 1)
@@ -71,15 +79,19 @@ public class Exam {
                 if (value == i)
                     count++;
             }
-            isSelfReferential = count == a[i];
+            if(count != a[i])
+                return 0;
         }
 
-        return isSelfReferential ? 1 : 0;
+        return 1;
     }
 
 
     /*
-    2. An array is defined to be paired-N if it contains two distinct elements that sum to N for some specified value of N and the indexes of those elements also sum to N. Write a function named isPairedN that returns 1 if its array parameter is a paired-N array. The value of N is passed as the second parameter.
+    2. An array is defined to be paired-N if it contains two distinct elements that sum to N
+    for some specified value of N and the indexes of those elements also sum to N.
+    Write a function named isPairedN that returns 1 if its array parameter is a paired-N array.
+    The value of N is passed as the second parameter.
 
     If you are writing in Java or C#, the function signature is
     int isPairedN(int[ ] a, int n)
@@ -89,21 +101,25 @@ public class Exam {
 
     There are two additional requirements.
 
-    Once you know the array is paired-N, you should return 1. No wasted loop iterations please.
+    - Once you know the array is paired-N, you should return 1. No wasted loop iterations please.
 
-    Do not enter the loop unless you have to. You should test the length of the array and the value of n to determine whether the array could possibly be a paired-N array. If the tests indicate no, return 0 before entering the loop.
+    - Do not enter the loop unless you have to.
+    You should test the length of the array and the value of n to determine whether the array could possibly be a paired-N array.
+    If the tests indicate no, return 0 before entering the loop.
 
     Examples
-
-    if a is						and n is	return		reason
-    {1, 4, 1, 4, 5, 6}				5			1		because a[2] + a[3] == 5 and 2+3==5. In other words, the sum of the values is equal to the sum of the corresponding indexes and both are equal to n (5 in this case).
-    {1, 4, 1, 4, 5, 6}				6			1		because a[2] + a[4] == 6 and 2+4==6
-    {0, 1, 2, 3, 4, 5, 6, 7, 8}		6			1		because a[1]+a[5]==6 and 1+5==6
-    {1, 4, 1}						5			0		because although a[0] + a[1] == 5, 0+1 != 5; and although a[1]+a[2]==5, 1+2 != 5
-    {8, 8, 8, 8, 7, 7, 7}			15			0		because there are several ways to get the values to sum to 15 but there is no way to get the corresponding indexes to sum to 15.
-    {8, -8, 8, 8, 7, 7, -7}			-15			0		because although a[1]+a[6]==-15, 1+6!=-15
-    {3}								3			0		because the array has only one element
-    {}								0			0		because the array has no elements
+	----------------------------------------------------------------------------------------------------------------
+    if a is---------------------and n is-----return-----reason
+    ----------------------------------------------------------------------------------------------------------------
+    {1, 4, 1, 4, 5, 6}..............5...........1.......because a[2] + a[3] == 5 and 2+3==5. In other words, the sum of the values is equal to the sum of the corresponding indexes and both are equal to n (5 in this case).
+    {1, 4, 1, 4, 5, 6}..............6...........1.......because a[2] + a[4] == 6 and 2+4==6
+    {0, 1, 2, 3, 4, 5, 6, 7, 8}.....6...........1.......because a[1]+a[5]==6 and 1+5==6
+    {1, 4, 1}.......................5...........0.......because although a[0] + a[1] == 5, 0+1 != 5; and although a[1]+a[2]==5, 1+2 != 5
+    {8, 8, 8, 8, 7, 7, 7}...........15..........0.......because there are several ways to get the values to sum to 15 but there is no way to get the corresponding indexes to sum to 15.
+    {8, -8, 8, 8, 7, 7, -7}........-15..........0.......because although a[1]+a[6]==-15, 1+6!=-15
+    {3}.............................3...........0.......because the array has only one element
+    {}..............................0...........0.......because the array has no elements
+    ----------------------------------------------------------------------------------------------------------------
      */
     public int isPairedN(int[] a, int n) {
         if (a == null || a.length < 2 || n < 1 || n > a.length)
@@ -123,7 +139,8 @@ public class Exam {
     }
 
     /*
-    1. Write a function named hasSingleMaximum that takes an array argument and returns 1 if the maximum value in its array argument occurs exactly once in the array, otherwise it returns 0.
+    1. Write a function named hasSingleMaximum that takes an array argument and returns 1
+    if the maximum value in its array argument occurs exactly once in the array, otherwise it returns 0.
 
     If you are writing in Java or C#, the function signature is
     int hasSingleMaximum(int[ ] a)
@@ -132,14 +149,16 @@ public class Exam {
     int hasSingleMaximum(int a[ ], int len) where len is the length of a
 
     Examples
-
-    if a is 						return		reason
-    {1, 2, 3, 1, 0}						1		because the maximum value 3 occurs only once in the array
-    {18}								1		because the maximum value 18 occurs exactly once in the array
-    {1, 2, 3, 0, 1, 3}					0		because the maximum value 3 occurs twice in the array
-    {13, 1, 13, 2, 13, 0, 13, 1, 13}	0		because the maximum value 13 occurs more than once in the array
-    {}									0		because there is no maximum value
-    {-6, -6, -6, -6, -6, -6, -6}		0		because the maximum value -6 occurs more than once in the array
+	----------------------------------------------------------------------------------------------------------------
+    if a is---------------------------return----reason
+    ----------------------------------------------------------------------------------------------------------------
+    {1, 2, 3, 1, 0}---------------------1-------because the maximum value 3 occurs only once in the array
+    {18}--------------------------------1-------because the maximum value 18 occurs exactly once in the array
+    {1, 2, 3, 0, 1, 3}------------------0-------because the maximum value 3 occurs twice in the array
+    {13, 1, 13, 2, 13, 0, 13, 1, 13}----0-------because the maximum value 13 occurs more than once in the array
+    {}----------------------------------0-------because there is no maximum value
+    {-6, -6, -6, -6, -6, -6, -6}--------0-------because the maximum value -6 occurs more than once in the array
+    ----------------------------------------------------------------------------------------------------------------
      */
     public int hasSingleMaximum(int[] a) {
         if (a == null || a.length == 0)
