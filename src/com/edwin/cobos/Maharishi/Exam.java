@@ -74,8 +74,9 @@ public class Exam {
        int isSelfReferential(int a[ ], int len) where len is the number of elements in the array
      */
     public int isSelfReferential(int[] a) {
-        boolean isSelfReferential = false;
-
+        if(a == null || a.length == 0)
+            return 0;
+        
         for (int i = 0; i < a.length; i++) {
             int count = 0;
             for (int value : a) {
