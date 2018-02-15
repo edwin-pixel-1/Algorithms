@@ -12,26 +12,26 @@ public class Exam {
         //System.out.println(rr);
 
         //Test 3
-//        int rr = isSelfReferential(new int[]{1, 2, 1, 0});
-//        System.out.println(rr);
-//        rr = isSelfReferential(new int[]{2, 0, 2, 0});
-//        System.out.println("{2, 0, 2, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{2, 1, 2, 0, 0});
-//        System.out.println("{2, 1, 2, 0, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{3, 2, 1, 1, 0, 0, 0});
-//        System.out.println("{3, 2, 1, 1, 0, 0, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{4, 2, 1, 0, 1, 0, 0, 0});
-//        System.out.println("{4, 2, 1, 0, 1, 0, 0, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{5, 2, 1, 0, 0, 1, 0, 0, 0});
-//        System.out.println("{5, 2, 1, 0, 0, 1, 0, 0, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{6, 2, 1, 0, 0, 0, 1, 0, 0, 0});
-//        System.out.println("{6, 2, 1, 0, 0, 0, 1, 0, 0, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{2, 0, 0});
-//        System.out.println("{2, 0, 0} = " + rr);
-//        rr = isSelfReferential(new int[]{2});
-//        System.out.println("{2} = " + rr);
-//        rr = isSelfReferential(new int[]{2, 0, 3, 1});
-//        System.out.println("{2, 0, 3, 0} = " + rr);
+        //int rr = isSelfReferential(new int[]{1, 2, 1, 0});
+        //System.out.println(rr);
+        //rr = isSelfReferential(new int[]{2, 0, 2, 0});
+        //System.out.println("{2, 0, 2, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{2, 1, 2, 0, 0});
+        //System.out.println("{2, 1, 2, 0, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{3, 2, 1, 1, 0, 0, 0});
+        //System.out.println("{3, 2, 1, 1, 0, 0, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{4, 2, 1, 0, 1, 0, 0, 0});
+        //System.out.println("{4, 2, 1, 0, 1, 0, 0, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{5, 2, 1, 0, 0, 1, 0, 0, 0});
+        //System.out.println("{5, 2, 1, 0, 0, 1, 0, 0, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{6, 2, 1, 0, 0, 0, 1, 0, 0, 0});
+        //System.out.println("{6, 2, 1, 0, 0, 0, 1, 0, 0, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{2, 0, 0});
+        //System.out.println("{2, 0, 0} = " + rr);
+        //rr = isSelfReferential(new int[]{2});
+        //System.out.println("{2} = " + rr);
+        //rr = isSelfReferential(new int[]{2, 0, 3, 1});
+        //System.out.println("{2, 0, 3, 0} = " + rr);
 
     }
 
@@ -40,13 +40,16 @@ public class Exam {
     a[i] is the count of the number of times that the value i appears in the array.
     As the following table indicates, {1, 2, 1, 0} is a self-referential array.
 
-    i      a[i]     comment
-    0		1		There is one 0 in the array. (a[0] = 1)
-    1		2		There are two 1s in the array (a[1] = 2)
-    2		1		There is one 2 in the array (a[2] = 1)
-    3		0		There are no 3s in the array (a[3] = 0)
-    Here are some examples of arrays that are not self-referential:
+    ------------------------------------------------------------------------
+    i------a[i]-----comment
+    ------------------------------------------------------------------------
+    0       1       There is one 0 in the array. (a[0] = 1)
+    1       2       There are two 1s in the array (a[1] = 2)
+    2       1       There is one 2 in the array (a[2] = 1)
+    3       0       There are no 3s in the array (a[3] = 0)
+    ------------------------------------------------------------------------
 
+    Here are some examples of arrays that are not self-referential:
     {2, 0, 0} is not a self-referential array. There are two 0s and no 1s. But unfortunately there is a 2 which contradicts a[2] = 0.
 
     {0} is not a self-referential array because there is one 0, but since a[0] = 0, there has to be no 0s.
@@ -152,12 +155,12 @@ public class Exam {
 	----------------------------------------------------------------------------------------------------------------
     if a is---------------------------return----reason
     ----------------------------------------------------------------------------------------------------------------
-    {1, 2, 3, 1, 0}---------------------1-------because the maximum value 3 occurs only once in the array
-    {18}--------------------------------1-------because the maximum value 18 occurs exactly once in the array
-    {1, 2, 3, 0, 1, 3}------------------0-------because the maximum value 3 occurs twice in the array
-    {13, 1, 13, 2, 13, 0, 13, 1, 13}----0-------because the maximum value 13 occurs more than once in the array
-    {}----------------------------------0-------because there is no maximum value
-    {-6, -6, -6, -6, -6, -6, -6}--------0-------because the maximum value -6 occurs more than once in the array
+    {1, 2, 3, 1, 0}.....................1.......because the maximum value 3 occurs only once in the array
+    {18}................................1.......because the maximum value 18 occurs exactly once in the array
+    {1, 2, 3, 0, 1, 3}..................0.......because the maximum value 3 occurs twice in the array
+    {13, 1, 13, 2, 13, 0, 13, 1, 13}....0.......because the maximum value 13 occurs more than once in the array
+    {}..................................0.......because there is no maximum value
+    {-6, -6, -6, -6, -6, -6, -6}........0.......because the maximum value -6 occurs more than once in the array
     ----------------------------------------------------------------------------------------------------------------
      */
     public int hasSingleMaximum(int[] a) {
