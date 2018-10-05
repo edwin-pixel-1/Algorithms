@@ -12,7 +12,7 @@ public class Exam {
         //System.out.println(rr);
 
         //Test 3
-        //int rr = isSelfReferential(new int[]{1, 2, 1, 0});
+        int rr = isSelfReferential(new int[]{1, 2, 1, 0});
         //System.out.println(rr);
         //rr = isSelfReferential(new int[]{2, 0, 2, 0});
         //System.out.println("{2, 0, 2, 0} = " + rr);
@@ -32,6 +32,9 @@ public class Exam {
         //System.out.println("{2} = " + rr);
         //rr = isSelfReferential(new int[]{2, 0, 3, 1});
         //System.out.println("{2, 0, 3, 0} = " + rr);
+
+        String vall = "";
+
 
     }
 

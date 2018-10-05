@@ -10,11 +10,15 @@ public class Exercise2 {
      */
 
     public Exercise2() {
-        int r = f(159632);
+        int r = f(1534236469);
+        //1534236469
+        //243423649
+        //2147483647
         System.out.println(r);
     }
 
     private int f(int n) {
+
         int sign = 1;
         if (n == 0) return 0;
         if (n < 0) {
@@ -23,10 +27,16 @@ public class Exercise2 {
         }
 
         int reverse = 0;
+        int temp;
         while (n != 0) {
+            temp = reverse;
             reverse = (reverse * 10) + (n % 10);
             n /= 10;
+
+            if(temp != reverse/10)
+                return 0;
         }
+
 
         return sign * reverse;
     }
