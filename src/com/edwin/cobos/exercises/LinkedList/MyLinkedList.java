@@ -68,7 +68,7 @@ public class MyLinkedList {
      * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
      */
     public void addAtIndex(int index, int val) {
-        if (index > size - 1)
+        if (index > size)
             return;
 
         if (index == size) {
@@ -104,16 +104,15 @@ public class MyLinkedList {
      * Delete the index-th node in the linked list, if the index is valid.
      */
     public void deleteAtIndex(int index) {
-        if (index < 0 || index >= size - 1) {
+        if (index < 0 || index >= size) {
             return;
         }
 
         if (index == size - 1) {
             Node tmp = tail;
             tmp.prev.next = null;
-            tail.prev = null;
-
             tail = tmp.prev;
+            tmp.prev = null;
             size--;
             return;
         }
